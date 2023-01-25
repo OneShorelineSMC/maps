@@ -117,14 +117,9 @@
       window.unknownHazardFilter = unknownHazardFilter
   
       var hazardLayers = [
-        //{iconName: 'cliff', iconPath: './hazard-icons/icons8-cliff-100.png', filter: knownHazardFilterBuilder(knownHazardTypes.cliff)},
-        //{iconName: 'fire', iconPath: './hazard-icons/icons8-fire-90.png', filter: knownHazardFilterBuilder(knownHazardTypes.fire)},
-        {iconName: 'erosion', iconPath: './hazard-icons/landslide.png', filter: knownHazardFilterBuilder(knownHazardTypes.erosion)},
-        {iconName: 'wave', iconPath: './hazard-icons/wave.png', filter: knownHazardFilterBuilder(knownHazardTypes.wave)},
-        //{iconName: 'landslide', iconPath: './hazard-icons/icons8-avalanche-100.png', filter: knownHazardFilterBuilder(knownHazardTypes.landslide)},
-        {iconName: 'flood', iconPath: './hazard-icons/water-drop.png', filter: knownHazardFilterBuilder(knownHazardTypes.flood)},
-        //{iconName: 'sinkhole', iconPath: './hazard-icons/icons8-hole-100.png', filter: knownHazardFilterBuilder(knownHazardTypes.sinkhole)},
-        //{iconName: 'other', iconPath: './hazard-icons/icons8-hazard-warning-flasher-100.png', filter: unknownHazardFilter},
+        {iconName: 'erosion', iconPath: './landslide.png', filter: knownHazardFilterBuilder(knownHazardTypes.erosion)},
+        {iconName: 'wave', iconPath: './wave.png', filter: knownHazardFilterBuilder(knownHazardTypes.wave)},
+        {iconName: 'flood', iconPath: './water-drop.png', filter: knownHazardFilterBuilder(knownHazardTypes.flood)},
       ]
   
       var transformRequest = (url, resourceType) => {

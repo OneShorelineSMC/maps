@@ -25,9 +25,10 @@
     #console {
       position: absolute;
       margin: 10px;
-      width: 300px;
+      width: 270px;
       background-color: white;
       padding: 10px 20px;
+      text-align: left;
 }
 
     /* Popup styling */
@@ -43,8 +44,8 @@
     .mapboxgl-popup-content {
       font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
       padding: 0;
-      width: 400px;
-      max-height: 400px;
+      width: 600px;
+      max-height: 600px;
       overflow-y: scroll;
     }
 
@@ -90,9 +91,10 @@
     <div id='map'></div>
     <div id='console'>
       <h1>Vulnerable sites on the San Mateo County Pacific Coast</h1>
+      <img src='./Legend.png' alt="Legend" width="200">
     </div>
     <script>
-      const featuresURL = "https://script.google.com/macros/s/AKfycbzv4Ci1Uh-vZjicJ-hYD51ePcr7SVXpq6kL2kJkZsxyY4XPv87TARN7DtRGM-aa5ErN/exec";
+      const featuresURL = "https://script.google.com/macros/s/AKfycbwBxxH3TbM1W6EqjwFh2PjgrXqmZqpvYQijT7CwDVbBWIFrS1VmwtBY_84pENT2zDM8/exec";
       // AKfycbw7yDrm3JF73_FFOvNmD8LeC9l5EGJXPq9rYOxsaKgp8Ii7NxFKdlfR_q5f-fLWSZzAbg
 
       const knownHazardTypes = {
@@ -137,7 +139,7 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoiZWJvbGVzIiwiYSI6ImNraDFtMG53cDAzMzYyem85Zm94cGJpMnYifQ.pFxheeS-98_kb68nMfZagQ'; //Mapbox token 
     var map = new mapboxgl.Map({
       container: 'map', // container id
-      style: 'mapbox://styles/mapbox/satellite-v9', // choose a style: https://docs.mapbox.com/api/maps/#styles
+      style: 'mapbox://styles/mapbox/satellite-streets-v12', // choose a style: https://docs.mapbox.com/api/maps/#styles
       center: [-122.350273, 37.519671], // starting position [lng, lat]
       zoom: 9, // starting zoom
       transformRequest: transformRequest
@@ -226,7 +228,7 @@
 
           const feature = e.features[0];
           const coordinates = feature.geometry.coordinates;
-          const {name, region, type, history, projects, current_status, lead_agency, link, page} = feature.properties;
+          const {name, region, type, history, projects, current_status, lead_agency, future_risk, link, page} = feature.properties;
 
           // var coordinates = feature.geometry.coordinates.slice();
           //set popup text
@@ -264,8 +266,11 @@
           if (lead_agency) {
             description += `<b>` + `Lead agency: ` + `</b>` + escape(lead_agency) + `</h4>` + `<h4>`
           }
+          if (future_risk) {
+            description += `<b>` + `Future risk: ` + `</b>` + escape(future_risk) + `</h4>` + `<h4>`
+          }
           if (link) {
-            description += `<b>` + `More information: ` + `</b>` + escape(link) + `</h4>` + `<h4>`
+            description += `<b>` + `Link for additional information: ` + `</b>` + `<a href="` +escape(link) + `" target="_blank">Click here</a>` + `</h4>` + `<h4>`
           }
           if (page) {
             description += `<b>` + `Page: ` + `</b>` + escape(page) + `</h4>` + `<h4>`

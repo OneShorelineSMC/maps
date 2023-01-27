@@ -44,7 +44,7 @@
       font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
       padding: 0;
       width: 400px;
-      max-height: 400px;
+      max-height: 500px;
       overflow-y: scroll;
     }
 
@@ -272,10 +272,10 @@
             for (const photo of photos.split(', ')) {
               //console.log(photo)
               description += `
-                      <h4>
-                        <b>Photo:</b>
-                        ${escape(photo)}
-                      </h4>
+//                      <h4>
+//                        <b>Photo:</b>
+//                        ${escape(photo)}
+//                      </h4>
                       <iframe
                         src="https://drive.google.com/file/d/${escape(new URLSearchParams(photo.split('?')[1]).get('id'))}/preview"
                         allow="autoplay"

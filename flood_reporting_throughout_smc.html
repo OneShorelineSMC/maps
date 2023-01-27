@@ -271,7 +271,7 @@
           if (photos) {
             for (const photo of photos.split(', ')) {
               //console.log(photo)
-              description += `
+              description += `<b>` + `Photos: ` + `</b>`
                       <iframe
                         src="https://drive.google.com/file/d/${escape(new URLSearchParams(photo.split('?')[1]).get('id'))}/preview"
                         allow="autoplay"

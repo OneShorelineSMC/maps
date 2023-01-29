@@ -25,9 +25,11 @@
     #console {
       position: absolute;
       margin: 10px;
-      width: 300px;
+      width: 450px;
       background-color: white;
       padding: 10px 20px;
+      text-align: left;
+      color: darkslategray;
 }
 
     /* Popup styling */
@@ -92,6 +94,10 @@
       <h1>Flood Reporting throughout San Mateo County</h1>
       <p> OneShoreline is gathering information about flooding events and related impacts around San Mateo County. Submit information to be included on the map at <a href='https://docs.google.com/forms/d/e/1FAIpQLSeGRAMC1NT5WUp11pUzlex9xeUwEf0PKqiUhGk3oeqRHptizQ/viewform'>this link</a>.</p>
     </div>
+    <div class='session' id='sliderbar'>
+      <h2>Hour: <label id='Time'>12PM</label></h2>
+      <input id='slider' class='row' type='range' min='0' max='23' step='1' value='12' />
+    </div>
     <script>
       const featuresURL = "https://script.google.com/macros/s/AKfycbwAo_U_i2tVrb16UjCRx7YULWqatUtE6FSFwf2Ixi3B5mgxuULF9_e7Mx-mWTc4dqPdEw/exec";
       // AKfycbw7yDrm3JF73_FFOvNmD8LeC9l5EGJXPq9rYOxsaKgp8Ii7NxFKdlfR_q5f-fLWSZzAbg
@@ -142,7 +148,7 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoiZWJvbGVzIiwiYSI6ImNraDFtMG53cDAzMzYyem85Zm94cGJpMnYifQ.pFxheeS-98_kb68nMfZagQ'; //Mapbox token 
     var map = new mapboxgl.Map({
       container: 'map', // container id
-      style: 'mapbox://styles/mapbox/satellite-streets-v12', // choose a style: https://docs.mapbox.com/api/maps/#styles
+      style: 'mapbox://styles/mapbox/outdoors-v12', // choose a style: https://docs.mapbox.com/api/maps/#styles
       center: [-122.350273, 37.519671], // starting position [lng, lat]
       zoom: 9, // starting zoom
       transformRequest: transformRequest
@@ -204,7 +210,7 @@
           } 
           })
 
-
+          
         //Add the the layer to the map
         /*
         map.addLayer({
@@ -271,7 +277,10 @@
           if (photos) {
             for (const photo of photos.split(', ')) {
               //console.log(photo)
-              description += `<b>` + `Photos: ` + `</b>`
+              description += `
+                      <h4>
+                        <b>Photo:</b>
+                      </h4>
                       <iframe
                         src="https://drive.google.com/file/d/${escape(new URLSearchParams(photo.split('?')[1]).get('id'))}/preview"
                         allow="autoplay"

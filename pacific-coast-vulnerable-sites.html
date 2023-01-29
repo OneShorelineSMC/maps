@@ -228,7 +228,7 @@
 
           const feature = e.features[0];
           const coordinates = feature.geometry.coordinates;
-          const {name, region, type, history, projects, current_status, lead_agency, future_risk, link, page} = feature.properties;
+          const {name, region, type, site_history, project_history, current_risks, future_risks, project_status, lead_agency, disadvantaged, link, page} = feature.properties;
 
           // var coordinates = feature.geometry.coordinates.slice();
           //set popup text
@@ -254,20 +254,26 @@
          
         //  description += `<b>` + `Location: ` + `</b>` + escape(Math.round(coordinates[1]*10000)/10000) + ' N, ' + escape(Math.round(coordinates[0]*10000)/10000) + ' E' + `</h4>` + `<h4>`
             
-          if (history) {
-            description += `<b>` + `Site history: ` + `</b>` + escape(history) + `</h4>` + `<h4>`
+          if (site_history) {
+            description += `<b>` + `Site history: ` + `</b>` + escape(site_history) + `</h4>` + `<h4>`
           }
-          if (projects) {
-            description += `<b>` + `Project history: ` + `</b>` + escape(projects) + `</h4>` + `<h4>`
+          if (project_history) {
+            description += `<b>` + `Relevant project history: ` + `</b>` + escape(project_history) + `</h4>` + `<h4>`
+          }       
+          if (current_risks) {
+            description += `<b>` + `Current risks: ` + `</b>` + escape(current_risks) + `</h4>` + `<h4>`
+          }   
+          if (future_risks) {
+            description += `<b>` + `Future risks: ` + `</b>` + escape(future_risks) + `</h4>` + `<h4>`
           }
-          if (current_status) {
-            description += `<b>` + `Current status: ` + `</b>` + escape(current_status) + `</h4>` + `<h4>`
+          if (project_status) {
+            description += `<b>` + `Current project status and cost estimates: ` + `</b>` + escape(project_status) + `</h4>` + `<h4>`
           }
           if (lead_agency) {
             description += `<b>` + `Lead agency: ` + `</b>` + escape(lead_agency) + `</h4>` + `<h4>`
           }
-          if (future_risk) {
-            description += `<b>` + `Future risk: ` + `</b>` + escape(future_risk) + `</h4>` + `<h4>`
+          if (disadvantaged) {
+            description += `<b>` + `Disadvantaged community? ` + `</b>` + escape(disadvantaged) + `</h4>` + `<h4>`
           }
           if (link) {
             description += `<b>` + `Link for additional information: ` + `</b>` + `<a href="` +escape(link) + `" target="_blank">Click here</a>` + `</h4>` + `<h4>`

@@ -46,7 +46,7 @@
       font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
       padding: 0;
       width: 400px;
-      max-height: 500px;
+      max-height: 400px;
       overflow-y: scroll;
     }
 
@@ -92,7 +92,7 @@
     <div id='map'></div>
     <div id='console'>
       <h1>Flood Reporting throughout San Mateo County</h1>
-      <p> OneShoreline is gathering information about flooding events and related impacts around San Mateo County. Submit information to be included on the map at <a href='https://docs.google.com/forms/d/e/1FAIpQLSeGRAMC1NT5WUp11pUzlex9xeUwEf0PKqiUhGk3oeqRHptizQ/viewform'>this link</a>.</p>
+      <p style="font-size: 17px"> OneShoreline is gathering information about flooding events and related impacts around San Mateo County. Submit information to be included on the map at <a href='https://docs.google.com/forms/d/e/1FAIpQLSeGRAMC1NT5WUp11pUzlex9xeUwEf0PKqiUhGk3oeqRHptizQ/viewform'>this link</a>. To view content that has been uploaded, click on a purple dot.</p>
     </div>
     <div class='session' id='sliderbar'>
       <h2>Hour: <label id='Time'>12PM</label></h2>
@@ -275,12 +275,9 @@
             description += `<b>` + `Description: ` + `</b>` + escape(comments) + `</h4>` + `<h4>`
           }
           if (photos) {
+            description += `<h4> <b>Photos:</b> </h4>`
             for (const photo of photos.split(', ')) {
-              //console.log(photo)
               description += `
-                      <h4>
-                        <b>Photo:</b>
-                      </h4>
                       <iframe
                         src="https://drive.google.com/file/d/${escape(new URLSearchParams(photo.split('?')[1]).get('id'))}/preview"
                         allow="autoplay"

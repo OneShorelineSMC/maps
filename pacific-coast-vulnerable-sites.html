@@ -25,7 +25,7 @@
     #console {
       position: absolute;
       margin: 10px;
-      width: 270px;
+      width: 420px;
       background-color: white;
       padding: 10px 20px;
       text-align: left;
@@ -90,7 +90,7 @@
 
     <div id='map'></div>
     <div id='console'>
-      <h1>Vulnerable sites on the San Mateo County Pacific Coast</h1>
+      <h2>Areas on the San Mateo County Pacific Coast vulnerable to current and future climate driven conditions</h2>
       <img src='./Legend.PNG' alt="Legend" width="200">
     </div>
     <script>
@@ -257,17 +257,17 @@
           if (site_history) {
             description += `<b>` + `Site history: ` + `</b>` + escape(site_history) + `</h4>` + `<h4>`
           }
-          if (project_history) {
-            description += `<b>` + `Relevant project history: ` + `</b>` + escape(project_history) + `</h4>` + `<h4>`
-          }       
           if (current_risks) {
             description += `<b>` + `Current risks: ` + `</b>` + escape(current_risks) + `</h4>` + `<h4>`
           }   
           if (future_risks) {
             description += `<b>` + `Future risks: ` + `</b>` + escape(future_risks) + `</h4>` + `<h4>`
           }
+          if (project_history) {
+            description += `<b>` + `Project history: ` + `</b>` + escape(project_history) + `</h4>` + `<h4>`
+          }       
           if (project_status) {
-            description += `<b>` + `Current project status and cost estimates: ` + `</b>` + escape(project_status) + `</h4>` + `<h4>`
+            description += `<b>` + `Project status and cost estimates: ` + `</b>` + escape(project_status) + `</h4>` + `<h4>`
           }
           if (lead_agency) {
             description += `<b>` + `Lead agency: ` + `</b>` + escape(lead_agency) + `</h4>` + `<h4>`
@@ -276,11 +276,11 @@
             description += `<b>` + `Disadvantaged community? ` + `</b>` + escape(disadvantaged) + `</h4>` + `<h4>`
           }
           if (link) {
-            description += `<b>` + `Link for additional information: ` + `</b>` + `<a href="` +escape(link) + `" target="_blank">Click here</a>` + `</h4>` + `<h4>`
+            description += `<b>` + `Link for additional information: ` + `</b>` + `<a href="` + escape(link) + `" target="_blank">` + escape(page) + `</a>` + `</h4>` + `<h4>`
           }
-          if (page) {
-            description += `<b>` + `Page: ` + `</b>` + escape(page) + `</h4>` + `<h4>`
-          }
+          // if (page) {
+          //   description += `<b>` + `Page: ` + `</b>` + escape(page) + `</h4>` + `<h4>`
+          // }
 
           // Ensure that if the map is zoomed out such that multiple
           // copies of the feature are visible, the popup appears
